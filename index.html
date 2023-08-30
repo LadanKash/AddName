@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 6 Name List Program</title>
+
+    <style>
+        body{
+            margin-top: 160px;
+            text-align: center;
+            font-family: sans-serif;
+            background-color: darkseagreen;
+        }
+
+     
+    input {
+      padding: 8px;
+      width: 20%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+
+    }
+    button:hover {
+      background-color: lightgray;
+      color:#333;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+
+    <h1>Programming a number to text convertor.</h1>
+    <h2>Enter Names</h2>
+    <input type="text" id="nameInput" placeholder="Enter a name">
+    <button onclick="addName()">Add Name</button>
+    <button onclick="displayNames()">Result</button>
+    <p id="nameList"></p>
+
+    <script>
+        const names = [];
+
+        function addName() {
+            const nameInput = document.getElementById("nameInput");
+            const name = nameInput.value.trim(); //Remove spaces with trim():
+            
+            if (name !== "") {
+                names.push(name); //push()This method adds data values at the end of an array.
+                                     
+                nameInput.value = "";    //to reset the value of the input field to an empty string. for the user to enter the next name without needing to manualy delete.
+            }
+        }
+
+        function displayNames() {
+            const nameList = document.getElementById("nameList");
+            nameList.innerHTML = "<h2>List of Names</h2><p>" + names.join(" ") + "</p>";
+        }
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
+<!--
+// I tried creating a variable input with the content of the field input.value, triming it and passing it on to the function.
+
+The trim() method of String values removes whitespace from both ends of this string and returns a new string, without modifying the original string. To return a new string with whitespace trimmed from just one end, use trimStart() or trimEnd() .
+
+//push()This method adds data values at the end of an array.this sure that only valid are added to the arrey-->
